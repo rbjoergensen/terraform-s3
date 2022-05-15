@@ -1,5 +1,5 @@
 # Terraform module - S3 bucket
-## Usage example
+## Example
 ``` hcl
 terraform {
   required_providers {
