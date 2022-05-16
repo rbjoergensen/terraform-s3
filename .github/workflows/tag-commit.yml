@@ -27,8 +27,8 @@ jobs:
           useConfigFile: true
           configFilePath: gitversion.yml
 
-  tag:
-    name: Tag
+  tag_semver:
+    name: Tag semver version
     runs-on: ubuntu-latest
     if: github.event_name != 'pull_request'
     needs:
@@ -40,4 +40,19 @@ jobs:
       - name: Create tag
         run: |
           git tag ${{ needs.calculate-version.outputs.semVer }}
+          git push origin ${{ needs.calculate-version.outputs.semVer }}
+  
+  tag_major:
+    name: Tag major version
+    runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request' || github.ref == 'refs/heads/main'
+    needs:
+      - calculate-version
+    steps:
+      - uses: actions/checkout@v3
+        name: Checkout code
+
+      - name: Create tag
+        run: |
+          git tag v${{ needs.calculate-version.outputs.Major }} --force
           git push origin ${{ needs.calculate-version.outputs.semVer }}
