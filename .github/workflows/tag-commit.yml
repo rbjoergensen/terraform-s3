@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       semVer: ${{ steps.gitversion.outputs.fullSemVer }}
+      major: ${{ steps.gitversion.outputs.Major }}
     steps:
       - uses: actions/checkout@v3
         name: Checkout code
@@ -54,5 +55,5 @@ jobs:
 
       - name: Create tag
         run: |
-          git tag "v${{ needs.calculate-version.outputs.Major }}" --force
+          git tag "v${{ needs.calculate-version.outputs.major }}" --force
           git push origin ${{ needs.calculate-version.outputs.semVer }}
