@@ -19,7 +19,9 @@ module "bucket" {
   providers = {
     aws = aws.frankfurt
   }
-  source = "git::https://github.com/rbjoergensen/tf-s3-bucket.git?ref=v1.0.0"
+  # Use v1 to use the latest build from major version v1
+  # Use a specific tag to lock down the version to a specific commit such as v1.0.7
+  source = "git::https://github.com/rbjoergensen/tf-s3-bucket.git?ref=v1"
   bucket_name = "callofthevoid-test-bucket"
 }
 ```
