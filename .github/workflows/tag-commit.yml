@@ -2,6 +2,9 @@ name: Tag commit
 
 on:
   push:
+    paths-ignore:
+      - .github/docs.yml
+      - *.md
 
 jobs:
   calculate-version:

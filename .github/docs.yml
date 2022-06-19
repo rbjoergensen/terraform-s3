@@ -1,0 +1,6 @@
+navigatorName: S3 Bucket Module
+category: Terraform
+includeLink: true
+files:
+- file: Readme.md
+  prettyName: Readme.md
