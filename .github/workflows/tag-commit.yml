@@ -3,6 +3,7 @@ name: Tag commit
 on:
   push:
     paths-ignore:
+      - '.github/workflows/update-docs.yml'
       - '.github/docs.yml'
       - '*.md'
 
