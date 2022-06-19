@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - '.github/docs.yml'
-      - 'Readme.md'
+      - '*.md'
 
 jobs:
   dispatch:
