@@ -8,7 +8,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 4.14.0"
+      version = ">= 4.14.0"
     }
   }
 }
@@ -22,7 +22,7 @@ module "bucket" {
   providers = {
     aws = aws.frankfurt
   }
-  source = "git::https://github.com/rbjoergensen/terraform-s3.git?ref=v1"
+  source = "git::https://github.com/rbjoergensen/tf-s3-bucket.git?ref=v1"
   bucket_name = "callofthevoid-test-bucket"
 }
 ```
